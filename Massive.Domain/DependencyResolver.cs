@@ -35,9 +35,9 @@ namespace Massive.Domain
 
             _set.ForEach(e =>
             {
-                if (_lookup.ContainsKey(e._id))
+                if (_lookup.ContainsKey(e.Id))
                 {
-                    _lookup[e._id].ForEach(a => Graph.AddUndirectedEdge(a, e));
+                    _lookup[e.Id].ForEach(a => Graph.AddUndirectedEdge(a, e));
                 }
                 Graph.AddNode(e);
             });            
@@ -47,7 +47,7 @@ namespace Massive.Domain
         {
             var node = new GraphNode
             {
-                _id = Int32.Parse(element.XPathSelectElement("./id").Value),
+                Id = Int32.Parse(element.XPathSelectElement("./id").Value),
                 Label = element.XPathSelectElement("./label").Value
             };
 

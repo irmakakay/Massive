@@ -15,7 +15,7 @@ namespace Massive.Model
     }
 
     [DataContract(Namespace = "")]
-    public class Graph : IGraph
+    public class Graph : IGraph, IMappable
     {
         private readonly List<INode> _nodeList;
 
@@ -25,6 +25,9 @@ namespace Massive.Model
 
             if (nodes != null) _nodeList.AddRange(nodes);
         }
+
+        [DataMember(Name = "id")]
+        public int Id { get; set; }        
 
         [DataMember(Name = "nodes")]
         public List<INode> Nodes { get { return _nodeList; } }
@@ -50,7 +53,7 @@ namespace Massive.Model
 
         public INode LocateNode(INode node)
         {
-            return _nodeList.FirstOrDefault(n => n._id == node._id);
+            return _nodeList.FirstOrDefault(n => n.Id == node.Id);
         }
 
         public bool Contains(INode value)
@@ -75,6 +78,6 @@ namespace Massive.Model
                                   });
 
             return true;
-        }
+        }       
     }
 }

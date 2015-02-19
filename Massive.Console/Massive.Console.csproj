@@ -35,6 +35,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,11 +50,16 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReaderConfiguration.cs" />
+    <Compile Include="ServiceChannel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Massive.DataService.Lib\Massive.DataService.Lib.csproj">
+      <Project>{ddd1e456-7c66-40c2-8f8c-9c7e6a7a805a}</Project>
+      <Name>Massive.DataService.Lib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Massive.Domain\Massive.Domain.csproj">
       <Project>{07d6aa43-1cce-4ffa-975d-9c4fc71c2256}</Project>
       <Name>Massive.Domain</Name>

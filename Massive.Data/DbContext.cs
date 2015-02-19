@@ -18,12 +18,13 @@ namespace Massive.Data
 
         public DbContext(string connectionString)
         {
+            var builder = new MongoConnectionStringBuilder(connectionString);
 
-            var client = new MongoClient(connectionString);
+            var client = new MongoClient(builder.ConnectionString);
 
             _server = client.GetServer();
 
-            _store = _server.GetDatabase("Massive");
+            _store = _server.GetDatabase(builder.DatabaseName);            
         }
 
         public MongoCollection<IGraph> Graphs

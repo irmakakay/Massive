@@ -6,14 +6,13 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 
-namespace Massive.DataService.Interface
-{
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
+namespace Massive.DataService.Lib
+{    
     [ServiceContract]
     public interface IMassiveDataService
     {        
         [OperationContract]
-        Graph GetGraph();
+        List<Graph> GetGraphs();
 
         [OperationContract]
         void SaveGraph(Graph graph);

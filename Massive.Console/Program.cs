@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Massive.Model;
 using Massive.Infrastructure;
+using Massive.DataService.Lib;
 
 namespace Massive.Console
 {
@@ -12,9 +13,10 @@ namespace Massive.Console
     {
         static void Main(string[] args)
         {
-            var reader = new DataReader(new ReaderConfiguration(), new Serializer());
+            var reader = new DataReader(new ReaderConfiguration(), new Serializer());            
 
-            var task = new ImportTask<GraphNode>(new ImportConfiguration(), reader);
+            var task = new ImportTask<GraphNode>(new ImportConfiguration(), 
+                new ServiceChannel<IMassiveDataService>(), reader);
 
             Run(task);
         }

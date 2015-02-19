@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Massive.DataService.Interface")]
+[assembly: AssemblyTitle("Massive.DataService.Lib")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Massive.DataService.Interface")]
+[assembly: AssemblyProduct("Massive.DataService.Lib")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("d823a09e-4b00-4deb-bd88-854972e52a06")]
+[assembly: Guid("e8a0e3ca-5e5a-4742-917e-1b1a98d3eab0")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -4,6 +4,7 @@ using System.Linq;
 using Massive.Infrastructure;
 using Massive.Model;
 using Massive.Domain;
+using Massive.DataService.Lib;
 
 namespace Massive.Console
 {
@@ -18,13 +19,18 @@ namespace Massive.Console
     {
         private readonly IImportConfiguration _configuration;
 
+        private readonly IServiceChannel<IMassiveDataService> _channel;
+
         private readonly IReader _reader;
 
         private readonly List<Exception> _errors = new List<Exception>();
 
-        public ImportTask(IImportConfiguration configuration, IReader reader)
+        public ImportTask(IImportConfiguration configuration,
+            IServiceChannel<IMassiveDataService> channel, IReader reader)
         {
             _configuration = configuration;
+
+            _channel = channel;
 
             _reader = reader;
         }
@@ -34,17 +40,32 @@ namespace Massive.Console
         public void Run()
         {
             try
-            {                
+            {
                 var resolver = new DependencyResolver(_reader.Read(), new Graph());
 
                 var factory = new GraphFactory(resolver);
 
                 var graph = factory.Create();
+
+                SendMessage(graph as Graph);
             }
             catch (Exception ex)
             {
-                _errors.Add(ex);                
+                _errors.Add(ex);
+            }
+            finally
+            {
+                _channel.Close();
             }
         }
+
+        #region Helpers
+
+        private void SendMessage(Graph g)
+        {
+            _channel.ServiceClient.SaveGraph(g);
+        }
+
+        #endregion
     }
 }

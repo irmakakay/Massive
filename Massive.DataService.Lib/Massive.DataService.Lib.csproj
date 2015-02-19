@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{160880C8-2F6E-4E55-99EE-6708224D7E92}</ProjectGuid>
+    <ProjectGuid>{DDD1E456-7C66-40C2-8F8C-9C7E6A7A805A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Massive.DataService.Interface</RootNamespace>
-    <AssemblyName>Massive.DataService.Interface</AssemblyName>
+    <RootNamespace>Massive.DataService.Lib</RootNamespace>
+    <AssemblyName>Massive.DataService.Lib</AssemblyName>
     <ProjectTypeGuids>{3D9AD99F-2412-4246-B90B-4EAA41C64699};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <StartArguments>/client:"WcfTestClient.exe"</StartArguments>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
@@ -45,12 +46,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IMassiveDataService.cs" />
+    <Compile Include="MassiveDataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\Massive.Data\Massive.Data.csproj">
+      <Project>{5a96274b-2d49-4e74-8118-5670d2a0fb28}</Project>
+      <Name>Massive.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Massive.Model\Massive.Model.csproj">
       <Project>{beb7efec-c10f-44a6-8c5c-39199dc22c3d}</Project>
       <Name>Massive.Model</Name>

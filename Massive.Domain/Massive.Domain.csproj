@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DepthFirstTraversePolicy.cs" />
+    <Compile Include="BreadthFirstTraversePolicy.cs" />
     <Compile Include="DependencyResolver.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="GraphFactory.cs" />

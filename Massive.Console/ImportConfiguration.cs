@@ -9,7 +9,7 @@ namespace Massive.Console
 {
     public interface IImportConfiguration
     {
-        
+         
     }
 
     public class ImportConfiguration : IImportConfiguration

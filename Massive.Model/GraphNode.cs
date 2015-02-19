@@ -12,9 +12,14 @@ namespace Massive.Model
         string Label { get; }
     }
 
-    public interface INode : ILabel
+    public interface IMappable
     {
-        int _id { get; }
+        int Id { get; }
+    }
+
+    public interface INode : ILabel, IMappable
+    {
+        int Id { get; }
 
         List<INode> AdjacentNodes { get; }
     }  
@@ -23,7 +28,7 @@ namespace Massive.Model
     public class GraphNode : INode, IEquatable<INode>
     {
         [DataMember(Name="id")]
-        public int _id { get; set; }
+        public int Id { get; set; }
 
         [DataMember(Name = "label")]
         public string Label { get; set; }
@@ -38,7 +43,7 @@ namespace Massive.Model
 
         public bool Equals(INode other)
         {
-            return _id == other._id;
+            return Id == other.Id;
         }
 
         public override bool Equals(object obj)
@@ -52,7 +57,7 @@ namespace Massive.Model
 
         public override int GetHashCode()
         {
-            return _id.GetHashCode();
+            return Id.GetHashCode();
         }
 
         

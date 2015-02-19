@@ -17,6 +17,11 @@ namespace Massive.Infrastructure
             foreach (var r in range) self.Push(r);
         }
 
+        public static void EnqueueRange<T>(this Queue<T> self, IEnumerable<T> range)
+        {
+            foreach (var r in range) self.Enqueue(r);
+        }
+
         public static XElement ToXElement(this StreamReader self)
         {
             return XElement.Parse(self.ReadToEnd());
